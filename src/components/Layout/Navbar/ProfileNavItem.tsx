@@ -1,11 +1,10 @@
 import Avatar from '@/components/Elements/Avatar'
 import { NAV_ICON } from '@/data/NavItemData'
-import { Box, Divider } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import React, { Dispatch, SetStateAction } from 'react'
 import { getCachedUserAddress } from '@/utils/getCachedUserAddress'
 import { ColorModeToggle } from './ColorModeToggle'
 import NavMenu from './NavMenu'
-import { ProfileLink } from './ProfileLink'
 import { LogOutBtn } from './Logout'
 
 interface ProfileNavMenuProps {
@@ -33,8 +32,6 @@ const ProfileNavMenu = ({
           />
         }
       >
-        <Divider />
-        <ProfileLink />
         <ColorModeToggle isInMobileMenu={false} />
         {userAddress && <LogOutBtn isInMobileMenu={false} />}
       </NavMenu>
