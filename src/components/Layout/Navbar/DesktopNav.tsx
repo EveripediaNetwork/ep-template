@@ -4,7 +4,6 @@ import { NAV_ITEMS } from '@/data/NavItemData'
 import { NavMenu } from '@/components/Layout/Navbar'
 import { useRouter } from 'next/router'
 import { NavItem } from '@/types/NavItemType'
-import { useTranslation } from 'react-i18next'
 
 const DesktopNav = () => {
   const router = useRouter()
@@ -19,7 +18,6 @@ const DesktopNav = () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
-  const { t } = useTranslation()
   return (
     <HStack onMouseLeave={() => setVisibleMenu(null)}>
       {NAV_ITEMS.map((navItem: NavItem) => {
@@ -29,7 +27,7 @@ const DesktopNav = () => {
             navItem={navItem}
             setVisibleMenu={setVisibleMenu}
             visibleMenu={visibleMenu}
-            label={t(navItem.label)}
+            label={navItem.label}
           />
         )
       })}

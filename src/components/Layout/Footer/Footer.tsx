@@ -23,16 +23,16 @@ import { SocialFooter } from '@/components/Layout/Footer'
 import { RiGlobalLine } from 'react-icons/ri'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { languageData } from '@/data/LanguageData'
-import { useTranslation } from 'react-i18next'
 import { logEvent } from '@/libs/analytics/googleAnalytics'
 import Link from 'next/link'
 import { Logo } from '@/components/Elements'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
-  const { t, i18n } = useTranslation()
   const spacing = useBreakpointValue({ base: 8, lg: 24 })
   const [lang, setLang] = useState<string>(languageData[0].value)
   const thisYear = new Date().getFullYear()
+  const { i18n } = useTranslation()
 
   const handleLangChange = (userLang: string | string[]) => {
     if (isString(userLang)) {
@@ -85,7 +85,7 @@ const Footer = () => {
             <Flex alignItems="center">
               <Text py={3} pr={2}>
                 {' '}
-                © {thisYear} {`${t('copyRight')}`}
+                © {thisYear} IQ.Wiki Powered By
               </Text>
               <Link target="_blank" href="https://braindao.org/">
                 <Text _hover={{ textDecoration: 'underline' }}>BrainDAO</Text>

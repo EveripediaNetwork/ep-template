@@ -13,7 +13,6 @@ import {
 import Link from '@/components/Elements/LinkElements/Link'
 import { NavItem } from '@/types/NavItemType'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 import { RiArrowDownSLine } from 'react-icons/ri'
 
 interface NavMenuType {
@@ -31,7 +30,6 @@ const NavMenu = ({
   label,
 }: NavMenuType) => {
   const router = useRouter()
-  const { t } = useTranslation()
   return (
     <Menu placement="bottom" isOpen={visibleMenu === navItem.id}>
       <MenuButton
@@ -91,7 +89,7 @@ const NavMenu = ({
                   />
                 )}
                 <Box fontSize="md" fontWeight={600} color="linkColor">
-                  {`${t(item.label)}`}
+                  {item.label}
                 </Box>
               </MenuItem>
               {navItem.subItem?.length !== key + 1 && <Divider />}
