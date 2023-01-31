@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import CustomAvatar from 'boring-avatars'
 import {
   Avatar as ChakraAvatar,
@@ -15,7 +15,6 @@ import { useENSData } from '@/hooks/useENSData'
 type DisplayAvatarProps = ChakraProps & {
   address?: string | null
   svgProps?: SystemStyleObject
-  avatarIPFS?: string | null
   wrapperProps?: HTMLChakraProps<'span'>
   size?: number
   alt: string | undefined
@@ -23,7 +22,6 @@ type DisplayAvatarProps = ChakraProps & {
 const Avatar = ({
   address,
   svgProps,
-  avatarIPFS,
   wrapperProps,
   size = 26,
   alt,

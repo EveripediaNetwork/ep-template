@@ -1,6 +1,6 @@
 import { utils } from 'ethers'
 
-const networkMap = {
+const NetworkMap = {
   POLYGON_MAINNET: {
     chainId: utils.hexValue(137), // '0x89'
     chainName: 'Matic(Polygon) Mainnet',
@@ -17,4 +17,4 @@ const networkMap = {
   },
 }
 
-export default networkMap
+export default NetworkMap

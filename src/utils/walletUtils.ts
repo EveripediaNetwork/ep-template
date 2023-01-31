@@ -1,13 +1,48 @@
 import { tokenDetails } from '@/data/WalletData'
 import {
+  TokenDetailsType,
   BalanceType,
   ParamsType,
   ErrorType,
-  TokenDetailsType,
   ConvertedBalanceType,
   WalletBalanceType,
 } from '@/types/WalletBalanceType'
-import { fetchTokenRate } from './fetchTokenRate'
+import config from '@/config'
+import { StaticJsonRpcProvider, BaseProvider } from '@ethersproject/providers'
+
+export const provider: BaseProvider = new StaticJsonRpcProvider(config.ensRPC)
+
+export const getTokenValue = (
+  arrayOfTokenDetails: TokenDetailsType[],
+  name: string | undefined,
+) => {
+  if (arrayOfTokenDetails) {
+    const res = arrayOfTokenDetails.find(details => details?.token === name)
+    if (res) {
+      return res.price
+    }
+  }
+  return 0
+}
+
+export const getIqTokenValue = async () =>
+  fetch(
+    'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=everipedia',
+  )
+    .then(response => response.json())
+    .then(data => {
+      return +data.everipedia.usd
+    })
+
+export const fetchTokenRate = async (
+  tokenName: string,
+  versusCurrency = 'usd',
+) => {
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/simple/price?ids=${tokenName}&vs_currencies=${versusCurrency}`,
+  )
+  return (await res.json())[tokenName][versusCurrency]
+}
 
 export const fetchWalletBalance = async (
   getBalance: (config?: ParamsType) => Promise<BalanceType | ErrorType>,

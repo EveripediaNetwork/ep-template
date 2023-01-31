@@ -9,8 +9,8 @@ import NextNProgress from 'nextjs-progressbar'
 import { pageView } from '@/libs/analytics/googleAnalytics'
 import { Dict } from '@chakra-ui/utils'
 import '../libs/translations/i18n'
-import { DynamicWagmiProvider } from '@/components/Wagmi/DynamicWagmiProvider'
 import { Montserrat } from '@next/font/google'
+import WagmiProvider from '@/components/Wagmi/WagmiProvider'
 import chakraTheme from '../theme'
 
 const { ToastContainer } = createStandaloneToast()
@@ -46,11 +46,11 @@ const App = ({ Component, pageProps, router }: EpAppProps) => {
       <SEOHeader router={router} />
       <ReduxProvider store={store}>
         <ChakraProvider resetCSS theme={chakraTheme}>
-          <DynamicWagmiProvider>
+          <WagmiProvider>
             <Layout noFooter={Component.noFooter}>
               <Component {...pageProps} />
             </Layout>
-          </DynamicWagmiProvider>
+          </WagmiProvider>
         </ChakraProvider>
       </ReduxProvider>
       <ToastContainer />
