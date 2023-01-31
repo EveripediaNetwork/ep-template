@@ -34,7 +34,7 @@
     "@ethersproject/contracts": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
     "@ethersproject/units": "^5.7.0",
-    "@everipedia/wagmi-magic-connector": "^0.9.1",
+    "@everipedia/wagmi-magic-connector": "0.7.0",
     "@metamask/detect-provider": "^1.2.0",
     "@next/font": "^13.0.3",
     "@reduxjs/toolkit": "^1.9.0",

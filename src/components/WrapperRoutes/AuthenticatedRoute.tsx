@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useAccount } from 'wagmi'
-import { WagmiStatusContext } from '../Wagmi/DynamicWagmiProvider'
 
 const WagmiLoadedAuthenticatedRoute = ({
   WrappedComponent,
@@ -30,23 +29,12 @@ const WagmiLoadedAuthenticatedRoute = ({
 export const authenticatedRoute = <P extends object>(
   WrappedComponent: () => JSX.Element | null,
 ) => {
-  const AuthenticatedRoute = (props: P) => {
-    const { isWagmiWrapped, setIsWagmiWrapped } = useContext(WagmiStatusContext)
+  const AuthenticatedRoute = (props: P) => (
+    <WagmiLoadedAuthenticatedRoute
+      WrappedComponent={WrappedComponent}
+      {...props}
+    />
+  )
 
-    useEffect(() => {
-      setIsWagmiWrapped(true)
-    }, [setIsWagmiWrapped])
-
-    return (
-      <>
-        {isWagmiWrapped && (
-          <WagmiLoadedAuthenticatedRoute
-            WrappedComponent={WrappedComponent}
-            {...props}
-          />
-        )}
-      </>
-    )
-  }
   return AuthenticatedRoute
 }
