@@ -1,0 +1,7 @@
+export { default as Avatar } from './Avatar'
+export { default as LinkButton } from './LinkElements/LinkButton'
+export { default as Carousel } from './Carousel'
+export { default as Link } from './LinkElements/Link'
+export { default as Logo } from './Logo'
+export { default as Modal } from './Modal'
+export { default as SocialIcon } from './SocialIcon'

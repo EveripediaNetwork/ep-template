@@ -1,0 +1,10 @@
+{
+  "extends": "./configs/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": ["next-env.d.ts", "src/**/*", "index.d.ts"],
+  "exclude": ["src/stories/**/*", "node_modules", ".next"]
+}
