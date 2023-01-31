@@ -11,12 +11,12 @@ import {
 } from '@chakra-ui/react'
 import { FocusableElement } from '@chakra-ui/utils'
 import { RiCloseLine, RiErrorWarningFill } from 'react-icons/ri'
-import { ProviderDataType } from '@/types/ProviderDataType'
 import { useAccount } from 'wagmi'
 import config from '@/config'
 import { useDispatch } from 'react-redux'
-import networkMap from '@/utils/networkMap'
+import NetworkMap from '@/data/NetworkMap'
 import detectEthereumProvider from '@metamask/detect-provider'
+import { ProviderDataType } from '@/types/ProviderDataType'
 
 const NetworkErrorNotification = () => {
   const cancelRef = React.useRef<FocusableElement>(null)
@@ -29,8 +29,8 @@ const NetworkErrorNotification = () => {
 
   const { chainId, chainName, rpcUrls } =
     config.alchemyChain === 'maticmum'
-      ? networkMap.MUMBAI_TESTNET
-      : networkMap.POLYGON_MAINNET
+      ? NetworkMap.MUMBAI_TESTNET
+      : NetworkMap.POLYGON_MAINNET
 
   const handleChainChanged = useCallback(
     (chainDetails: string) => {

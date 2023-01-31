@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Network, Networks } from '@/data/NetworkData'
-import networkMap from '@/utils/networkMap'
+import NetworkMap from '@/data/NetworkMap'
 import config from '@/config'
 
 const NetworkMenu = () => {
@@ -20,8 +20,8 @@ const NetworkMenu = () => {
 
   const { chainId } =
     config.alchemyChain === 'maticmum'
-      ? networkMap.MUMBAI_TESTNET
-      : networkMap.POLYGON_MAINNET
+      ? NetworkMap.MUMBAI_TESTNET
+      : NetworkMap.POLYGON_MAINNET
 
   const handleNetworkSwitch = (newNetwork: Network) => {
     if (newNetwork.chainId === chainId) {

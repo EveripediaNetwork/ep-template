@@ -3,8 +3,8 @@ import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
 import config from '@/config'
 import { RiMore2Fill } from 'react-icons/ri'
 import { supportedTokens } from '@/data/SupportedToken'
-import { ProviderDataType } from '@/types/ProviderDataType'
 import detectEthereumProvider from '@metamask/detect-provider'
+import { ProviderDataType } from '@/types/ProviderDataType'
 
 const TokenDetailsMenu = ({ token }: { token: string | undefined }) => {
   const [detectedProvider, setDetectedProvider] =

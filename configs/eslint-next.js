@@ -57,7 +57,7 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'off',
     'no-param-reassign': ['error', { props: false }],
     'no-console': 'warn',
-    "prettier/prettier": ["error"],
+    'prettier/prettier': ['error'],
     'react/require-default-props': 0,
     'react/no-array-index-key': 0,
     'react/jsx-props-no-spreading': 0,
@@ -76,6 +76,12 @@ module.exports = {
         varsIgnorePattern: '^_',
         args: 'after-used',
         argsIgnorePattern: '^_',
+      },
+    ],
+    'react/no-unknown-property': [
+      2,
+      {
+        ignore: ['jsx', 'global'],
       },
     ],
   },

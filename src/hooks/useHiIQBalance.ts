@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
-import { provider } from '@/utils/getProvider'
+import { provider, getIqTokenValue } from '@/utils/walletUtils'
 import { Contract } from '@ethersproject/contracts'
 import { BigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import { useDispatch } from 'react-redux'
 import { updateHiIQDetails } from '@/store/slices/user-slice'
-import { getIqTokenValue } from '../utils/getTokenValue'
 
 const abi = [
   'function balanceOf(address addr) view returns (uint256)',
